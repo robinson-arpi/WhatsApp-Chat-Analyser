@@ -3,6 +3,7 @@ import re
 from collections import Counter
 import nltk
 from nltk.corpus import stopwords
+import emoji
 
 class Chat:
     def __init__(self):
@@ -97,4 +98,14 @@ class Chat:
 
         palabras_filtradas = [palabra for palabra in palabras if palabra not in stopwords_es and palabra not in omited_words]
         return palabras_filtradas
-        
+
+    def count_emojis(self, messages):
+        emoji_counter = {}
+        for message in messages:
+            emojis = [c for c in message if c in emoji.UNICODE_EMOJI]
+            for emoji_char in emojis:
+                if emoji_char in emoji_counter:
+                    emoji_counter[emoji_char] += 1
+                else:
+                    emoji_counter[emoji_char] = 1
+        return emoji_counter    

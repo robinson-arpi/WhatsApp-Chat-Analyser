@@ -1,0 +1,6 @@
+[theme]
+primaryColor = "#FFA500"  # Cambia el color principal a naranja
+backgroundColor = "#000000"  # Cambia el color de fondo a negro
+secondaryBackgroundColor = "#111111"  # Cambia el color de fondo secundario
+textColor = "#FFFFFF"  # Cambia el color del texto a blanco
+font = "sans-serif"  # Cambia la fuente
