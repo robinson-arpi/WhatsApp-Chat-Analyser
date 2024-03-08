@@ -21,7 +21,7 @@ def process():
     imagen_url = "assets//img//michi.jpg"
 
     # Muestra la imagen en la barra lateral izquierda
-    st.sidebar.image(imagen_url, width=200, caption="Descripción de la imagen")
+    st.sidebar.image(imagen_url, width=200)
 
     # Subir un archivo
     uploaded_file = st.file_uploader("Upload a WhatsApp chat file (.txt)", type=["txt"])
@@ -30,6 +30,7 @@ def process():
     if uploaded_file is not None:
         # Procesar el archivo
         chat_df = chat.process_data(uploaded_file)
+        chat_df = chat.analyze_sentiments()  # Análisis de sentimientos
 
         # Mostrar una vista previa de los datos
         st.subheader("Previes")

@@ -4,6 +4,7 @@ from collections import Counter
 import nltk
 from nltk.corpus import stopwords
 import emoji
+from textblob import TextBlob
 
 class Chat:
     def __init__(self):
@@ -109,3 +110,8 @@ class Chat:
                 else:
                     emoji_counter[emoji_char] = 1
         return emoji_counter    
+    
+    def analyze_sentiments(self):
+        # Asumiendo que 'message' es la columna con los textos de los mensajes
+        self.df_chat['sentiment'] = self.df_chat['message'].apply(lambda x: TextBlob(x).sentiment.polarity)
+        return self.df_chat
